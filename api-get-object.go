@@ -636,7 +636,7 @@ func (c Client) getObject(ctx context.Context, bucketName, objectName string, op
 	objectStat, err := ToObjectInfo(bucketName, objectName, resp.Header)
 	if err != nil {
 		closeResponse(resp)
-		return nil, objectStat, resp.Header, nil
+		return nil, objectStat, resp.Header, err
 	}
 
 	// do not close body here, caller will close
